@@ -25,7 +25,7 @@
     ],
     projects: [
       {
-        emoji: "🏎️", cat: ["robotics"], badge: { en: "team · private", tr: "takım · private" },
+        emoji: "🏎️", cat: ["robotics"], badge: { en: "team · private", tr: "takım · özel" },
         title: { en: "TEKNOFEST Robotaksi", tr: "TEKNOFEST Robotaksi" },
         text: {
           en: "Autonomous passenger-car stack for the TEKNOFEST Robotaxi competition with team AUtomotion-R. Dockerised ROS 2 workspace, CARLA simulation and point-cloud map calibration.",
@@ -34,7 +34,7 @@
         tags: ["ROS 2", "CARLA", "Docker", "Python"],
       },
       {
-        emoji: "🧭", cat: ["robotics"], badge: { en: "private", tr: "private" },
+        emoji: "🧭", cat: ["robotics"], badge: { en: "private", tr: "özel" },
         title: { en: "HTAB İKA Simulation", tr: "HTAB İKA Simülasyonu" },
         text: {
           en: "Gazebo and RViz test field for the İKA leg of TEKNOFEST Advanced Autonomous Systems: a 50×50 m rubble field with three candidate corridors generated from a seed, plus the scoring.",
@@ -52,7 +52,7 @@
         tags: ["Edge AI"],
       },
       {
-        emoji: "🧰", cat: ["web"], badge: { en: "public", tr: "public" },
+        emoji: "🧰", cat: ["web"], badge: { en: "public", tr: "açık kaynak" },
         title: { en: "MTA Workshop Inventory", tr: "MTA Atölye Malzeme Takip" },
         text: {
           en: "Inventory and request system for the National Technology Workshop. Students request parts, and coordinators approve and hand them out. BLM2537 term project.",
@@ -62,7 +62,7 @@
         link: "https://github.com/yigitozc/mta-atolye-takip",
       },
       {
-        emoji: "🏭", cat: ["web"], badge: { en: "private", tr: "private" },
+        emoji: "🏭", cat: ["web"], badge: { en: "private", tr: "özel" },
         title: { en: "MTA Management Platform", tr: "MTA Yönetim Platformu" },
         text: {
           en: "Larger version of the workshop system: a separate frontend, an API gateway and a Java/Maven backend, with Playwright end-to-end tests.",
