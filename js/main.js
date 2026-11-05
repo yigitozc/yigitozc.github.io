@@ -5,8 +5,9 @@
   // Every visible piece of content lives here. Text fields are { en, tr }.
   const data = {
     now: [
-      ["🏎️", { en: "Building the autonomy stack for TEKNOFEST Robotaksi with team AUtomotion-R", tr: "AUtomotion-R takımıyla TEKNOFEST Robotaksi için otonom sürüş yazılımı geliştiriyorum" }],
-      ["🧭", { en: "Simulating İKA (unmanned ground vehicle) obstacle courses in Gazebo", tr: "Gazebo'da İKA (insansız kara aracı) parkurlarını simüle ediyorum" }],
+      ["🚙", { en: "Team captain of our TEKNOFEST İKA (unmanned ground vehicle) team at CORE", tr: "CORE'daki TEKNOFEST İKA (insansız kara aracı) takımımızın kaptanıyım" }],
+      ["🧊", { en: "Team captain of our TÜBİTAK polar research team", tr: "TÜBİTAK kutup araştırmaları takımımızın kaptanıyım" }],
+      ["🎪", { en: "On the organisation team of the CORE Student Community", tr: "CORE Öğrenci Topluluğu'nun organizasyon ekibindeyim" }],
       ["🌐", { en: "Coding the MTA Workshop Inventory System for BLM2537", tr: "BLM2537 için MTA Atölye Malzeme Takip Sistemi'ni yazıyorum" }],
       ["🇯🇵", { en: "Learning Japanese, one kanji at a time", tr: "Japonca öğreniyorum, her gün bir kanji" }],
     ],
@@ -25,34 +26,7 @@
     ],
     projects: [
       {
-        emoji: "🏎️", cat: ["robotics"], badge: { en: "team · private", tr: "takım · özel" },
-        title: { en: "TEKNOFEST Robotaksi", tr: "TEKNOFEST Robotaksi" },
-        text: {
-          en: "Autonomous passenger-car stack for the TEKNOFEST Robotaxi competition with team AUtomotion-R. Dockerised ROS 2 workspace, CARLA simulation and point-cloud map calibration.",
-          tr: "AUtomotion-R takımıyla TEKNOFEST Robotaksi yarışması için otonom binek araç yazılımı. Docker'lı ROS 2 çalışma alanı, CARLA simülasyonu ve nokta bulutu harita kalibrasyonu.",
-        },
-        tags: ["ROS 2", "CARLA", "Docker", "Python"],
-      },
-      {
-        emoji: "🧭", cat: ["robotics"], badge: { en: "private", tr: "özel" },
-        title: { en: "HTAB İKA Simulation", tr: "HTAB İKA Simülasyonu" },
-        text: {
-          en: "Gazebo and RViz test field for the İKA leg of TEKNOFEST Advanced Autonomous Systems: a 50×50 m rubble field with three candidate corridors generated from a seed, plus the scoring.",
-          tr: "TEKNOFEST İleri Otonom Sistemler İKA ayağı için Gazebo + RViz sahası: tohumdan üretilen üç aday koridorlu 50×50 m moloz alanı ve puanlama ölçümü.",
-        },
-        tags: ["ROS 2", "Gazebo", "RViz", "Python"],
-      },
-      {
-        emoji: "❄️", cat: ["hackathon", "robotics"], badge: { en: "hackathon", tr: "hackathon" },
-        title: { en: "Edge AI Perception Pod", tr: "Edge AI Otonom Algı Podu" },
-        text: {
-          en: "HackAntarktika project: an edge AI perception module for polar field conditions.",
-          tr: "HackAntarktika projesi: kutup saha koşulları için uç yapay zekâ tabanlı bir algı modülü.",
-        },
-        tags: ["Edge AI"],
-      },
-      {
-        emoji: "🧰", cat: ["web"], badge: { en: "public", tr: "açık kaynak" },
+        emoji: "🧰", badge: { en: "open source", tr: "açık kaynak" },
         title: { en: "MTA Workshop Inventory", tr: "MTA Atölye Malzeme Takip" },
         text: {
           en: "Inventory and request system for the National Technology Workshop. Students request parts, and coordinators approve and hand them out. BLM2537 term project.",
@@ -62,31 +36,14 @@
         link: "https://github.com/yigitozc/mta-atolye-takip",
       },
       {
-        emoji: "🏭", cat: ["web"], badge: { en: "private", tr: "özel" },
-        title: { en: "MTA Management Platform", tr: "MTA Yönetim Platformu" },
+        emoji: "🗺️", badge: { en: "open source", tr: "açık kaynak" },
+        title: { en: "This portfolio", tr: "Bu portfolyo" },
         text: {
-          en: "Larger version of the workshop system: a separate frontend, an API gateway and a Java/Maven backend, with Playwright end-to-end tests.",
-          tr: "Atölye sisteminin büyük sürümü: ayrı frontend, API gateway ve Java/Maven backend; Playwright uçtan uca testleri.",
+          en: "The site you're on. The hero is a small simulation: a car plans its route with A* and scans obstacles with a lidar, and you can click to drop new obstacles in its way. English/Turkish, light/dark, no framework.",
+          tr: "Şu an gezdiğin site. Girişteki küçük simülasyonda araç A* ile yolunu planlıyor ve LiDAR ile engelleri tarıyor; tıklayarak önüne yeni engel koyabilirsin. Türkçe/İngilizce, açık/koyu tema, framework yok.",
         },
-        tags: ["Java", "Maven", "Playwright", "JavaScript"],
-      },
-      {
-        emoji: "☕", cat: ["web"], badge: { en: "web", tr: "web" },
-        title: { en: "Mola Boutique Café", tr: "Mola Butik Kafe" },
-        text: {
-          en: "Framework-free café site. The menu and live “how busy is it” status load from JSON, and it has an auto-playing slider and accessible dialogs.",
-          tr: "Framework'süz kafe sitesi. Menü ve canlı doluluk durumu JSON'dan yükleniyor; otomatik slayt ve erişilebilir modal pencereler var.",
-        },
-        tags: ["HTML", "CSS", "JavaScript", "JSON"],
-      },
-      {
-        emoji: "🧊", cat: ["robotics"], badge: { en: "3D", tr: "3D" },
-        title: { en: "İKA 3D Model", tr: "İKA 3D Modeli" },
-        text: {
-          en: "Blender model of the unmanned ground vehicle, exported for use in the Gazebo simulations.",
-          tr: "İnsansız kara aracının Blender modeli; Gazebo simülasyonlarında kullanılmak üzere hazırlandı.",
-        },
-        tags: ["Blender", "Gazebo"],
+        tags: ["HTML", "CSS", "JavaScript", "Canvas", "A*"],
+        link: "https://github.com/yigitozc/yigitozc.github.io",
       },
     ],
     skills: [
@@ -109,7 +66,10 @@
       {
         when: { en: "2025 → now", tr: "2025 → devam ediyor" },
         name: { en: "CORE Student Community", tr: "CORE Öğrenci Topluluğu" },
-        text: { en: "Ankara University student community. I help with events, organisation and sponsorship.", tr: "Ankara Üniversitesi öğrenci topluluğu. Etkinlik, organizasyon ve sponsorluk işlerinde görev alıyorum." },
+        text: {
+          en: "Ankara University student community. I'm team captain of our TEKNOFEST İKA and TÜBİTAK polar research teams, and part of the organisation team.",
+          tr: "Ankara Üniversitesi öğrenci topluluğu. TEKNOFEST İKA ve TÜBİTAK kutup araştırmaları takımlarımızın kaptanıyım, ayrıca organizasyon ekibinde görevliyim.",
+        },
       },
       {
         when: { en: "TEKNOFEST", tr: "TEKNOFEST" },
@@ -124,8 +84,6 @@
     ],
   };
 
-  const filters = ["all", "robotics", "web", "hackathon"];
-
   // ---------- storage (may be unavailable) ----------
   const store = {
     get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
@@ -134,7 +92,6 @@
 
   // ---------- i18n + rendering ----------
   let lang = store.get("lang") === "tr" ? "tr" : "en";
-  let filter = "all";
   const $ = (s) => document.querySelector(s);
   const t = (key) => window.I18N[lang][key] ?? key;
   const L = (obj) => obj[lang];
@@ -152,10 +109,8 @@
     $("#education").innerHTML = data.education.map((e) =>
       `<li><span class="when">${esc(L(e.when))}</span><h4>${esc(L(e.school))}</h4><p>${esc(L(e.degree))}</p></li>`).join("");
 
-    $("#filters").innerHTML = filters.map((f) =>
-      `<button type="button" data-filter="${f}" aria-pressed="${f === filter}">${esc(t("filter." + f))}</button>`).join("");
     $("#project-grid").innerHTML = data.projects.map((p) => `
-      <article class="card project reveal${visible(p) ? "" : " hidden"}" data-cat="${p.cat.join(" ")}">
+      <article class="card project reveal">
         <div class="project-top"><span class="emoji" aria-hidden="true">${p.emoji}</span><span class="badge">${esc(L(p.badge))}</span></div>
         <h3>${esc(L(p.title))}</h3>
         <p>${esc(L(p.text))}</p>
@@ -174,16 +129,6 @@
 
     observeReveals();
   }
-
-  const visible = (p) => filter === "all" || p.cat.includes(filter);
-
-  $("#filters").addEventListener("click", (e) => {
-    const b = e.target.closest("button[data-filter]");
-    if (!b) return;
-    filter = b.dataset.filter;
-    document.querySelectorAll("#filters button").forEach((x) => x.setAttribute("aria-pressed", x === b));
-    document.querySelectorAll(".project").forEach((card, i) => card.classList.toggle("hidden", !visible(data.projects[i])));
-  });
 
   $("#lang-toggle").addEventListener("click", () => {
     lang = lang === "en" ? "tr" : "en";
