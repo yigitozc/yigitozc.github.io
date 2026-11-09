@@ -33,6 +33,10 @@
           tr: "BEE1 binek aracı için, kapalı pistte statik ve dinamik trafik senaryolarına yönelik uçtan uca otonom sürüş yazılımı: belirli sırayla yolcu alma, engelden kaçınma ve park etme.",
         },
         spec: [
+          [{ en: "My role", tr: "Katkım" }, {
+            en: "Started on the autonomous bus-stop manoeuvre: detecting the stop sign, entering the bay on a wide arc so the rear wheels clear the kerb, confirming a full stop with IMU data and rejoining the lane. Later grew to cover the architecture of the whole system.",
+            tr: "İşe otonom durak manevrasıyla başladım: durak tabelasını algılama, arka tekerlekler kaldırıma çarpmadan geniş bir yayla cebe girme, tam duruşu IMU verisiyle doğrulama ve şeride geri dönme. Sonrasında sistemin tüm mimarisine hâkim oldum.",
+          }],
           [{ en: "Perception", tr: "Algı" }, {
             en: "Lane detection with a CLRerNet model fine-tuned on track data, traffic sign and light detection with YOLO, and Velodyne lidar processing that reports the nearest obstacle in each zone around the vehicle.",
             tr: "Pist verisiyle ince ayar yapılmış CLRerNet modeliyle şerit algılama, YOLO ile trafik işareti ve ışık tespiti, Velodyne LiDAR verisinden aracın çevresindeki her bölge için en yakın engelin çıkarılması.",
@@ -75,6 +79,49 @@
         },
         stack: "HTML · CSS · JavaScript · Canvas",
         link: "https://github.com/yigitozc/yigitozc.github.io",
+      },
+    ],
+    // Described on the site, but their source code is not published.
+    otherProjects: [
+      {
+        title: { en: "HTAB İKA Simulation", tr: "HTAB İKA Simülasyonu" },
+        text: {
+          en: "Gazebo and RViz test field for the unmanned ground vehicle stage of TEKNOFEST Advanced Autonomous Systems: a 50×50 m rubble field with seed-generated corridors and a scoring measure.",
+          tr: "TEKNOFEST İleri Otonom Sistemler yarışmasının insansız kara aracı aşaması için Gazebo ve RViz test sahası: tohumdan üretilen koridorlara sahip 50×50 m moloz alanı ve puanlama ölçümü.",
+        },
+        stack: "ROS 2 · Gazebo · RViz · Python",
+      },
+      {
+        title: { en: "Edge AI Perception Pod", tr: "Edge AI Otonom Algı Podu" },
+        text: {
+          en: "HackAntarktika project: an edge AI perception module for polar field conditions.",
+          tr: "HackAntarktika projesi: kutup saha koşulları için uç yapay zekâ tabanlı bir algı modülü.",
+        },
+        stack: "YOLO · IMU · Docker",
+      },
+      {
+        title: { en: "MTA Management Platform", tr: "MTA Yönetim Platformu" },
+        text: {
+          en: "Team project and the full-scale version of the workshop system, with a separate frontend, an API gateway, a Java backend and end-to-end tests.",
+          tr: "Atölye sisteminin tam ölçekli sürümü olan takım projesi: ayrı frontend, API gateway, Java backend ve uçtan uca testler.",
+        },
+        stack: "Java · Maven · Playwright",
+      },
+      {
+        title: { en: "Mola Boutique Café", tr: "Mola Butik Kafe" },
+        text: {
+          en: "Café website without a framework. The menu and occupancy status load from JSON, with an automatic slider and accessible dialogs.",
+          tr: "Framework kullanılmadan yazılmış kafe sitesi. Menü ve doluluk durumu JSON'dan yükleniyor; otomatik slayt ve erişilebilir modal pencereler içeriyor.",
+        },
+        stack: "HTML · CSS · JavaScript",
+      },
+      {
+        title: { en: "UGV 3D Model", tr: "İKA 3D Modeli" },
+        text: {
+          en: "Compact Blender model of the unmanned ground vehicle, with suspension and laser animations.",
+          tr: "İnsansız kara aracının Blender'da hazırlanmış kompakt modeli; süspansiyon ve lazer animasyonları içeriyor.",
+        },
+        stack: "Blender",
       },
     ],
     skills: [
@@ -144,12 +191,15 @@
         <dl class="spec">${c.spec.map(([k, v]) => specRow(L(k), L(v))).join("")}</dl>
         <p class="stack">${esc(c.stack)}</p>
       </article>`).join("");
-    $("#project-list").innerHTML = data.projects.map((p) => `
+    const projectEntry = (p) => `
       <article class="entry">
         <h3>${esc(L(p.title))}</h3>
         <p class="text">${esc(L(p.text))}</p>
-        <p class="stack">${esc(p.stack)} · <a href="${p.link}" target="_blank" rel="noopener">${esc(t("project.view"))}</a></p>
-      </article>`).join("");
+        <p class="stack">${esc(p.stack)}${p.link ? ` · <a href="${p.link}" target="_blank" rel="noopener">${esc(t("project.view"))}</a>` : ""}</p>
+      </article>`;
+    $("#project-list").innerHTML =
+      `<h3 class="label">${esc(t("projects.open"))}</h3>${data.projects.map(projectEntry).join("")}` +
+      `<h3 class="label">${esc(t("projects.other"))}</h3>${data.otherProjects.map(projectEntry).join("")}`;
     $("#skill-list").innerHTML = data.skills.map(([k, v]) => specRow(L(k), v)).join("");
     $("#language-list").innerHTML = data.languages.map(([k, v]) => specRow(L(k), L(v))).join("");
     $("#cert-list").innerHTML = data.certs.map(plainEntry).join("");
