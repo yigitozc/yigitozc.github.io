@@ -4,21 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Yiğit Özçelik</title>
-  <meta name="description" content="Computer Engineering student at Ankara University working on autonomous vehicles, robot simulation and web apps.">
-  <meta name="theme-color" content="#070b16">
+  <meta name="description" content="Computer Engineering student at Ankara University working on autonomous ground vehicles.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Yiğit Özçelik">
-  <meta property="og:description" content="Autonomous systems · robotics · web — Computer Engineering @ Ankara University">
+  <meta property="og:description" content="Computer Engineering student at Ankara University working on autonomous ground vehicles.">
   <meta property="og:url" content="https://yigitozc.github.io/">
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/254345672?v=4">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script>
     // Apply the saved theme before first paint to avoid a flash.
-    document.documentElement.classList.add("js");
     try {
       const t = localStorage.getItem("theme");
       if (t) document.documentElement.dataset.theme = t;
@@ -29,112 +27,102 @@
   <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
   <header class="nav" id="nav">
-    <a class="brand" href="#top" aria-label="Home">yo<span>.</span></a>
+    <a class="brand" href="#top">Yiğit Özçelik</a>
     <nav class="nav-links" id="nav-links" aria-label="Sections">
       <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#competitions" data-i18n="nav.competitions">Competitions</a>
       <a href="#projects" data-i18n="nav.projects">Projects</a>
       <a href="#skills" data-i18n="nav.skills">Skills</a>
-      <a href="#community" data-i18n="nav.community">Community</a>
+      <a href="#communities" data-i18n="nav.communities">Communities</a>
       <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
     <div class="nav-tools">
-      <button class="pill" id="lang-toggle" type="button" aria-label="Switch language">TR</button>
-      <button class="pill icon" id="theme-toggle" type="button" aria-label="Toggle colour theme">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <button class="tool" id="lang-toggle" type="button">TR</button>
+      <button class="tool" id="theme-toggle" type="button" aria-label="Toggle colour theme">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg>
       </button>
-      <button class="pill icon burger" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <button class="tool burger" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
       </button>
     </div>
   </header>
 
   <section class="hero" id="top">
-    <canvas id="sim" aria-label="Animated grid: a vehicle plans a path with A* and scans obstacles with lidar. Click to add or remove obstacles." role="img"></canvas>
-    <div class="hero-shade" aria-hidden="true"></div>
-    <div class="hero-inner">
-      <p class="mono kicker"><span class="accent">&gt;</span> <span data-i18n="hero.kicker">hello, world</span></p>
+    <div class="hero-text">
       <h1>Yiğit Özçelik</h1>
-      <p class="lead" data-i18n="hero.lead">Computer Engineering student at Ankara University, building autonomous vehicles, robot simulations and the occasional web app.</p>
-      <div class="cta">
-        <a class="btn primary" href="#projects" data-i18n="hero.projects">See projects</a>
-        <a class="btn" href="#contact" data-i18n="hero.contact">Get in touch</a>
-      </div>
-      <p class="mono hint" data-i18n="hero.hint">↳ click the grid to drop obstacles, the car re-plans with A*</p>
+      <p class="lead" data-i18n="hero.lead"></p>
+      <p class="hero-links">
+        <a href="#competitions" data-i18n="hero.work"></a>
+        <a href="https://www.linkedin.com/in/yi%C4%9Fit-%C3%B6z%C3%A7elik-386645382" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/yigitozc" target="_blank" rel="noopener">GitHub</a>
+      </p>
     </div>
+    <figure class="hero-sim">
+      <canvas id="sim" role="img" aria-label="Simulation of a ground vehicle mapping unknown terrain with lidar and planning routes with A*."></canvas>
+      <figcaption>
+        <span class="caption" data-i18n="sim.caption"></span>
+        <dl class="hud">
+          <div><dt data-i18n="sim.status"></dt><dd id="hud-status">–</dd></div>
+          <div><dt data-i18n="sim.explored"></dt><dd id="hud-explored">–</dd></div>
+          <div><dt data-i18n="sim.speed"></dt><dd id="hud-speed">–</dd></div>
+          <div><dt data-i18n="sim.planner"></dt><dd id="hud-planner">–</dd></div>
+        </dl>
+      </figcaption>
+    </figure>
   </section>
 
   <main id="main">
-    <section class="section" id="about">
-      <div class="wrap">
-        <h2 class="reveal"><span class="num">01</span><span data-i18n="about.title">About</span></h2>
-        <div class="about-grid">
-          <div class="reveal">
-            <p class="big" data-i18n="about.p1">Most of my time goes into autonomous vehicles: perception, simulation and the ROS 2 plumbing that connects them.</p>
-            <p data-i18n="about.p2">I like projects that leave the screen: a car finding its way through a rubble field, a workshop system real students use to borrow parts. When I'm not in a simulator, I build small, framework-free web apps.</p>
-            <h3 class="mono small-title" data-i18n="about.now">right now</h3>
-            <ul class="now" id="now-list"></ul>
-          </div>
-          <aside class="card facts reveal" aria-label="Quick facts">
-            <img src="https://avatars.githubusercontent.com/u/254345672?v=4" alt="" width="88" height="88" loading="lazy">
-            <dl id="facts"></dl>
-          </aside>
-        </div>
-
-        <h3 class="sub reveal" data-i18n="edu.title">Education</h3>
-        <ol class="timeline reveal" id="education"></ol>
+    <section class="row" id="about">
+      <h2 data-i18n="about.title"></h2>
+      <div class="body">
+        <div class="prose" id="about-text"></div>
+        <h3 class="label" data-i18n="edu.title"></h3>
+        <div id="education"></div>
       </div>
     </section>
 
-    <section class="section" id="projects">
-      <div class="wrap">
-        <h2 class="reveal"><span class="num">02</span><span data-i18n="projects.title">Projects</span></h2>
-        <div class="projects" id="project-grid"></div>
+    <section class="row" id="competitions">
+      <h2 data-i18n="competitions.title"></h2>
+      <div class="body" id="competition-list"></div>
+    </section>
+
+    <section class="row" id="projects">
+      <h2 data-i18n="projects.title"></h2>
+      <div class="body" id="project-list"></div>
+    </section>
+
+    <section class="row" id="skills">
+      <h2 data-i18n="skills.title"></h2>
+      <div class="body">
+        <dl class="spec" id="skill-list"></dl>
+        <h3 class="label" data-i18n="langs.title"></h3>
+        <dl class="spec" id="language-list"></dl>
+        <h3 class="label" data-i18n="certs.title"></h3>
+        <div id="cert-list"></div>
       </div>
     </section>
 
-    <section class="section" id="skills">
-      <div class="wrap">
-        <h2 class="reveal"><span class="num">03</span><span data-i18n="skills.title">Skills</span></h2>
-        <div class="skills" id="skill-groups"></div>
-        <div class="two-col">
-          <div class="reveal">
-            <h3 class="sub" data-i18n="langs.title">Languages</h3>
-            <ul class="langs" id="languages"></ul>
-          </div>
-          <div class="reveal">
-            <h3 class="sub" data-i18n="certs.title">Certifications</h3>
-            <ul class="certs" id="certs"></ul>
-          </div>
-        </div>
-      </div>
+    <section class="row" id="communities">
+      <h2 data-i18n="communities.title"></h2>
+      <div class="body" id="community-list"></div>
     </section>
 
-    <section class="section" id="community">
-      <div class="wrap">
-        <h2 class="reveal"><span class="num">04</span><span data-i18n="community.title">Communities &amp; clubs</span></h2>
-        <div class="community" id="community-grid"></div>
-      </div>
-    </section>
-
-    <section class="section contact" id="contact">
-      <div class="wrap reveal">
-        <h2><span class="num">05</span><span data-i18n="contact.title">Contact</span></h2>
-        <p class="big" data-i18n="contact.p">Working on something with wheels, sensors or a browser? I'd be happy to hear about it.</p>
-        <a class="mail" href="mailto:yigitozcelik88@gmail.com">yigitozcelik88@gmail.com</a>
-        <div class="socials">
-          <a class="btn" href="https://www.linkedin.com/in/yi%C4%9Fit-%C3%B6z%C3%A7elik-386645382" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <a class="btn" href="https://github.com/yigitozc" target="_blank" rel="noopener">GitHub ↗</a>
-        </div>
+    <section class="row" id="contact">
+      <h2 data-i18n="contact.title"></h2>
+      <div class="body">
+        <dl class="spec">
+          <div><dt data-i18n="contact.email"></dt><dd><a href="mailto:yigitozcelik88@gmail.com">yigitozcelik88@gmail.com</a></dd></div>
+          <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/yi%C4%9Fit-%C3%B6z%C3%A7elik-386645382" target="_blank" rel="noopener">in/yiğit-özçelik</a></dd></div>
+          <div><dt>GitHub</dt><dd><a href="https://github.com/yigitozc" target="_blank" rel="noopener">yigitozc</a></dd></div>
+        </dl>
       </div>
     </section>
   </main>
 
-  <footer class="footer mono">
-    <span>© <span id="year"></span> Yiğit Özçelik</span>
-    <span data-i18n="footer">Hand-written HTML, CSS &amp; JavaScript.</span>
-  </footer>
+  <footer class="footer">© <span id="year"></span> Yiğit Özçelik</footer>
 
   <script src="js/i18n.js"></script>
+  <script src="js/sim.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
