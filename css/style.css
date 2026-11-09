@@ -242,7 +242,7 @@ h2 { font-size: clamp(28px, 3.4vw, 38px); font-weight: 500; letter-spacing: -.02
 .project .more:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* skills */
-.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.skills { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 .skill-group { padding: 22px; }
 .skill-group h3 { font-size: 16px; font-weight: 600; margin: 0 0 12px; }
 .chips { display: flex; flex-wrap: wrap; gap: 7px; }
@@ -302,6 +302,10 @@ h2 { font-size: clamp(28px, 3.4vw, 38px); font-weight: 500; letter-spacing: -.02
 .js .reveal.in { opacity: 1; transform: none; }
 .js .reveal.in.lift:hover { transform: translateY(-3px); border-color: var(--muted); transition-delay: 0s; }
 
+@media (max-width: 1100px) {
+  .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 @media (max-width: 1040px) {
   .hud { gap: 16px; }
 }
@@ -333,6 +337,7 @@ h2 { font-size: clamp(28px, 3.4vw, 38px); font-weight: 500; letter-spacing: -.02
 @media (max-width: 620px) {
   .pipeline { grid-template-columns: minmax(0, 1fr); }
   .communities { grid-template-columns: minmax(0, 1fr); }
+  .skills { grid-template-columns: minmax(0, 1fr); }
   .row-card { padding: 20px; gap: 14px; }
 }
 
