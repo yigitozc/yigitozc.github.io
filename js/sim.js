@@ -124,7 +124,7 @@ window.createSim = (canvas, onState) => {
   function readColors() {
     const cs = getComputedStyle(document.documentElement);
     const v = (n) => cs.getPropertyValue(n).trim();
-    colors = { free: v("--sim-free"), grid: v("--sim-grid"), hit: v("--sim-hit"), accent: v("--accent"), text: v("--text"), bg: v("--bg") };
+    colors = { free: v("--sim-free"), grid: v("--sim-grid"), hit: v("--sim-hit"), accent: v("--sim-accent"), text: v("--text"), bg: v("--bg") };
     const tile = document.createElement("canvas");
     tile.width = tile.height = 48 * dpr;
     const t = tile.getContext("2d");

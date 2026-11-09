@@ -4,6 +4,10 @@
   // ---------- content ----------
   // Every visible piece of content lives here. Text fields are { en, tr }.
   const data = {
+    heroWords: {
+      en: ["Autonomous ground vehicles", "Simulation and route planning", "Swarm UAVs", "Polar research", "Real-time CARLA simulation"],
+      tr: ["Otonom kara araçları", "Simülasyon ve rota planlama", "Sürü İHA", "Kutup araştırmaları", "CARLA'da gerçek zamanlı simülasyon"],
+    },
     about: [
       {
         en: "I am a second-year Computer Engineering student at Ankara University, working on autonomous ground vehicles and the software that lets perception, localization and planning run together on a real platform.",
@@ -28,6 +32,7 @@
         tile: "AÜ",
         title: { en: "Ankara University", tr: "Ankara Üniversitesi" },
         meta: { en: "B.Sc. Computer Engineering · 2025 – present", tr: "Bilgisayar Mühendisliği, lisans · 2025 – devam ediyor" },
+        stat: { value: "3.23", label: { en: "GPA", tr: "Ortalama" } },
       },
     ],
     experience: [
@@ -80,6 +85,47 @@
         tags: ["ROS 2", "Python", "C++", "PyTorch", "Lanelet2", "Docker", "CAN"],
       },
     ],
+    // Code for these stays private; they are described here only.
+    activeProjects: [
+      {
+        title: { en: "Unmanned Ground Vehicle (İKA)", tr: "İnsansız Kara Aracı (İKA)" },
+        role: { en: "Team captain", tr: "Takım kaptanı" },
+        text: {
+          en: "TEKNOFEST unmanned ground vehicle project. I lead the team, and I modelled the vehicle in Blender for use in our Gazebo simulation of the competition course.",
+          tr: "TEKNOFEST İnsansız Kara Aracı projesi. Takımı yönetiyorum; aracı Blender üzerinde modelledim ve yarışma parkurunun Gazebo simülasyonunda kullanıyoruz.",
+        },
+        tags: ["ROS 2", "Gazebo", "Blender", "Python"],
+      },
+      {
+        title: { en: "Advanced Autonomous Systems", tr: "İleri Otonom Sistemler" },
+        role: { en: "Simulation · Route planning", tr: "Simülasyon · Rota planlama" },
+        text: {
+          en: "TEKNOFEST Advanced Autonomous Systems project. I work on simulation and route planning, including a Gazebo and RViz test field: a 50×50 m rubble area with seed-generated corridors and a scoring measure.",
+          tr: "TEKNOFEST İleri Otonom Sistemler projesi. Simülasyon ve rota planlama kısımlarıyla uğraşıyorum; tohumdan üretilen koridorlara sahip 50×50 m moloz sahasını ve puanlama ölçümünü içeren Gazebo + RViz test ortamı bunlardan biri.",
+        },
+        tags: ["ROS 2", "Gazebo", "RViz", "Python", "Hybrid A*"],
+      },
+      {
+        title: { en: "Swarm UAV", tr: "Sürü İHA" },
+        text: { en: "Active 2026 project on unmanned aerial vehicles flying as a swarm.", tr: "Sürü halinde uçan insansız hava araçları üzerine aktif 2026 projesi." },
+        tags: [],
+      },
+      {
+        title: { en: "Polar Research", tr: "Kutup Araştırmaları" },
+        role: { en: "Team captain", tr: "Takım kaptanı" },
+        text: { en: "Active 2026 project within TÜBİTAK polar research.", tr: "TÜBİTAK kutup araştırmaları kapsamında aktif 2026 projesi." },
+        tags: [],
+      },
+      {
+        title: { en: "Robotaxi: Original Vehicle", tr: "Robotaksi Özgün" },
+        role: { en: "Simulation", tr: "Simülasyon" },
+        text: {
+          en: "I am currently building a real-time simulation in CARLA, connected to the autonomy stack through a ROS 2 bridge.",
+          tr: "Şu anda CARLA üzerinde, otonom sürüş yazılımına ROS 2 köprüsüyle bağlı gerçek zamanlı bir simülasyon geliştiriyorum.",
+        },
+        tags: ["CARLA", "ROS 2", "Python", "Blender"],
+      },
+    ],
     projects: [
       {
         title: { en: "MTA Workshop Inventory", tr: "MTA Atölye Malzeme Takip Sistemi" },
@@ -103,14 +149,6 @@
     // Described on the site, but their source code is not published.
     otherProjects: [
       {
-        title: { en: "HTAB İKA Simulation", tr: "HTAB İKA Simülasyonu" },
-        text: {
-          en: "Gazebo and RViz test field for the unmanned ground vehicle stage of TEKNOFEST Advanced Autonomous Systems: a 50×50 m rubble field with seed-generated corridors and a scoring measure.",
-          tr: "TEKNOFEST İleri Otonom Sistemler yarışmasının insansız kara aracı aşaması için Gazebo ve RViz test sahası: tohumdan üretilen koridorlara sahip 50×50 m moloz alanı ve puanlama ölçümü.",
-        },
-        tags: ["ROS 2", "Gazebo", "RViz", "Python"],
-      },
-      {
         title: { en: "Edge AI Perception Pod", tr: "Edge AI Otonom Algı Podu" },
         text: {
           en: "HackAntarktika project: an edge AI perception module for polar field conditions.",
@@ -126,22 +164,6 @@
         },
         tags: ["React", "TypeScript", "Java", "Playwright"],
       },
-      {
-        title: { en: "Mola Boutique Café", tr: "Mola Butik Kafe" },
-        text: {
-          en: "Café website without a framework. The menu and occupancy status load from JSON, with an automatic slider and accessible dialogs.",
-          tr: "Framework kullanılmadan yazılmış kafe sitesi. Menü ve doluluk durumu JSON'dan yükleniyor; otomatik slayt ve erişilebilir modal pencereler içeriyor.",
-        },
-        tags: ["HTML", "CSS", "JavaScript"],
-      },
-      {
-        title: { en: "UGV 3D Model", tr: "İKA 3D Modeli" },
-        text: {
-          en: "Compact Blender model of the unmanned ground vehicle, with suspension and laser animations.",
-          tr: "İnsansız kara aracının Blender'da hazırlanmış kompakt modeli; süspansiyon ve lazer animasyonları içeriyor.",
-        },
-        tags: ["Blender"],
-      },
     ],
     skills: [
       [{ en: "Programming", tr: "Programlama" }, ["Python", "C++", "Java", "JavaScript", "TypeScript"]],
@@ -150,9 +172,9 @@
       [{ en: "Tools", tr: "Araçlar" }, ["Linux", "Docker", "Git", "Maven", "Playwright"]],
     ],
     languages: [
-      [{ en: "Turkish", tr: "Türkçe" }, { en: "Native", tr: "Ana dil" }, 100],
-      [{ en: "English", tr: "İngilizce" }, { en: "Limited working proficiency", tr: "Sınırlı mesleki yeterlilik" }, 55],
-      [{ en: "Japanese", tr: "Japonca" }, { en: "Elementary proficiency", tr: "Başlangıç seviyesi" }, 22],
+      { code: "TR", greet: "Merhaba", name: { en: "Turkish", tr: "Türkçe" }, level: { en: "Native", tr: "Ana dil" }, w: 100 },
+      { code: "EN", greet: "Hello", name: { en: "English", tr: "İngilizce" }, level: { en: "Limited working proficiency", tr: "Sınırlı mesleki yeterlilik" }, w: 55 },
+      { code: "JP", greet: "こんにちは", name: { en: "Japanese", tr: "Japonca" }, level: { en: "Elementary proficiency", tr: "Başlangıç seviyesi" }, w: 22 },
     ],
     certs: [
       {
@@ -166,11 +188,6 @@
         tile: "CORE",
         title: { en: "CORE Student Community", tr: "CORE Öğrenci Topluluğu" },
         meta: { en: "Board Member · Ankara University · 2025 – present", tr: "Yönetim Kurulu Üyesi · Ankara Üniversitesi · 2025 – devam ediyor" },
-      },
-      {
-        tile: "AU-R",
-        title: { en: "AUtomotion-R", tr: "AUtomotion-R" },
-        meta: { en: "Autonomous vehicle team", tr: "Otonom araç takımı" },
       },
     ],
   };
@@ -207,18 +224,22 @@
         ${e.text ? `<p class="text">${esc(L(e.text))}</p>` : ""}
         ${e.tags ? tags(e.tags) : ""}
       </div>
+      ${e.stat ? `<div class="stat"><strong>${esc(e.stat.value)}</strong><span>${esc(L(e.stat.label))}</span></div>` : ""}
     </article>`;
 
-  const projectCard = (p, i) => `
+  const projectCard = (p, i) => {
+    const badge = p.role ? L(p.role) : p.tags.length === 0 ? "" : t(p.link ? "project.badgeOpen" : "project.badgePrivate");
+    return `
     <article class="card project lift reveal" ${delay(i)}>
       <div class="project-top">
         <h4>${esc(L(p.title))}</h4>
-        <span class="badge${p.link ? " accent" : ""}">${esc(t(p.link ? "project.badgeOpen" : "project.badgePrivate"))}</span>
+        ${badge ? `<span class="badge${p.link || p.role ? " accent" : ""}">${esc(badge)}</span>` : ""}
       </div>
       <p>${esc(L(p.text))}</p>
-      ${tags(p.tags)}
+      ${p.tags.length ? tags(p.tags) : ""}
       ${p.link ? `<a class="more" href="${p.link}" target="_blank" rel="noopener">${esc(t("project.view"))}</a>` : ""}
     </article>`;
+  };
 
   function render() {
     document.documentElement.lang = lang;
@@ -253,23 +274,94 @@
         ${tags(c.tags)}
       </article>`).join("");
     $("#project-list").innerHTML = `
+      <h3 class="label reveal">${esc(t("projects.active"))}</h3>
+      <div class="project-grid thirds">${data.activeProjects.map(projectCard).join("")}</div>
       <h3 class="label reveal">${esc(t("projects.open"))}</h3>
       <div class="project-grid">${data.projects.map(projectCard).join("")}</div>
       <h3 class="label reveal">${esc(t("projects.other"))}</h3>
-      <div class="project-grid thirds">${data.otherProjects.map(projectCard).join("")}</div>`;
+      <div class="project-grid">${data.otherProjects.map(projectCard).join("")}</div>`;
     $("#skill-list").innerHTML = data.skills.map(([title, items], i) => `
       <div class="card skill-group lift reveal" ${delay(i)}>
         <h3>${esc(L(title))}</h3>
         <div class="chips">${items.map((s) => `<span class="chip">${esc(s)}</span>`).join("")}</div>
       </div>`).join("");
-    $("#language-list").innerHTML = data.languages.map(([name, level, w]) => `
-      <div>
-        <div class="row"><span class="name">${esc(L(name))}</span><span class="lvl">${esc(L(level))}</span></div>
-        <div class="bar"><i style="--w:${w}%"></i></div>
-      </div>`).join("");
+    $("#language-list").innerHTML = data.languages.map((l, i) => `
+      <article class="card lang-card lift reveal" ${delay(i)}>
+        <div class="ring" style="--w:${l.w}">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27"/><circle class="value" cx="32" cy="32" r="27" pathLength="100"/></svg>
+          <span>${l.code}</span>
+        </div>
+        <div>
+          <p class="greet" lang="${l.code === "JP" ? "ja" : l.code.toLowerCase()}">${esc(l.greet)}</p>
+          <h4>${esc(L(l.name))}</h4>
+          <p class="lvl">${esc(L(l.level))}</p>
+        </div>
+      </article>`).join("");
     $("#cert-list").innerHTML = data.certs.map(rowCard).join("");
     $("#community-list").innerHTML = data.communities.map(rowCard).join("");
     paintHud();
+    startRotator();
+  }
+
+  // ---------- hero name and rotating line ----------
+  const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let rotatorTimer = 0;
+
+  function startRotator() {
+    clearTimeout(rotatorTimer);
+    const el = $("#rotator-text"), words = L(data.heroWords);
+    if (calm) { el.textContent = words[0]; return; }
+    let w = 0, n = 0, erasing = false;
+    const tick = () => {
+      n += erasing ? -1 : 1;
+      el.textContent = words[w].slice(0, n);
+      let wait = erasing ? 26 : 55;
+      if (!erasing && n === words[w].length) { erasing = true; wait = 1900; }
+      else if (erasing && n === 0) { erasing = false; w = (w + 1) % words.length; wait = 280; }
+      rotatorTimer = setTimeout(tick, wait);
+    };
+    tick();
+  }
+
+  // Letters swell and warm up near the cursor; without one, a wave runs through them.
+  function setupName() {
+    const h1 = $("#name"), name = h1.textContent;
+    h1.setAttribute("aria-label", name);
+    let index = 0;
+    h1.innerHTML = name.split(" ").map((word) => `<span class="word" aria-hidden="true">${[...word].map((c) => `<span class="ch" style="animation-delay:${index++ * 45}ms">${c}</span>`).join("")}</span>`).join("");
+    if (calm) return;
+
+    const letters = [...h1.querySelectorAll(".ch")];
+    const hero = $(".hero");
+    const BASE = 560, RANGE = 210, RADIUS = 200, WAVE_EVERY = 6500, WAVE_FOR = 1500;
+    let pointer = null, raf = 0, visible = false;
+    const start = performance.now() + 1100;
+
+    function frame(now) {
+      const rects = pointer ? letters.map((l) => l.getBoundingClientRect()) : null;
+      const phase = (now - start) % WAVE_EVERY;
+      letters.forEach((l, i) => {
+        let p = 0;
+        if (rects) {
+          const d = Math.hypot(rects[i].left + rects[i].width / 2 - pointer.x, rects[i].top + rects[i].height / 2 - pointer.y);
+          p = Math.max(0, 1 - d / RADIUS);
+        } else if (now > start && phase < WAVE_FOR) {
+          const pos = (phase / WAVE_FOR) * (letters.length + 4) - 2;
+          p = Math.exp(-((i - pos) ** 2) / 3);
+        }
+        l.style.fontWeight = Math.round(BASE + p * RANGE);
+        l.style.setProperty("--p", p.toFixed(3));
+      });
+      if (visible) raf = requestAnimationFrame(frame);
+    }
+
+    hero.addEventListener("pointermove", (e) => { if (e.pointerType === "mouse") pointer = { x: e.clientX, y: e.clientY }; });
+    hero.addEventListener("pointerleave", () => { pointer = null; });
+    new IntersectionObserver(([en]) => {
+      visible = en.isIntersecting;
+      cancelAnimationFrame(raf);
+      if (visible) raf = requestAnimationFrame(frame);
+    }).observe(h1);
   }
 
   // ---------- reveal on scroll ----------
@@ -327,6 +419,7 @@
 
   const sim = window.createSim($("#sim"), (state) => { hud = state; paintHud(); });
 
+  setupName();
   render();
   observeReveals();
 })();
