@@ -22,6 +22,28 @@
         tr: "Bunun yanında web uygulamaları geliştiriyor, üniversitemdeki öğrenci topluluklarında aktif olarak yer alıyorum.",
       },
     ],
+    tech: [
+      ["Python", {
+        en: "ROS 2 nodes and simulation tooling: a seed-generated Gazebo test field with automated tests, Gazebo vehicle models generated from Blender meshes, and camera and control tools around a CARLA and ROS 2 bridge.",
+        tr: "ROS 2 düğümleri ve simülasyon araçları: otomatik testli, tohumdan üretilen Gazebo test sahası; Blender mesh'lerinden Gazebo araç modeli üretimi; CARLA ve ROS 2 köprüsü etrafında kamera ve kontrol araçları.",
+      }],
+      ["ROS 2", {
+        en: "Autonomous bus-stop manoeuvre and the system architecture of the Robotaxi stack: perception, localization, Lanelet2 planning and CAN control.",
+        tr: "Robotaksi yazılımında otonom durak manevrası ve algı, konumlama, Lanelet2 planlama ile CAN kontrolünden oluşan sistem mimarisi.",
+      }],
+      ["TypeScript · React", {
+        en: "Frontend of the MTA tracking system: a progressive web app with TanStack Router and Query, React Hook Form with Zod validation, Tailwind CSS and Keycloak sign-in.",
+        tr: "MTA takip sisteminin frontend'i: TanStack Router ve Query, Zod doğrulamalı React Hook Form, Tailwind CSS ve Keycloak girişi içeren progresif web uygulaması.",
+      }],
+      ["JavaScript · Canvas", {
+        en: "The simulation on this page, with lidar ray casting, an occupancy grid, A* and path tracking and no libraries; also the MTA inventory app.",
+        tr: "Bu sayfadaki simülasyon: kütüphane kullanmadan LiDAR ışın izleme, doluluk ızgarası, A* ve yol takibi; ayrıca MTA malzeme takip uygulaması.",
+      }],
+      ["Blender", {
+        en: "3D model of the unmanned ground vehicle, carried into the Gazebo simulation.",
+        tr: "İnsansız kara aracının 3D modeli; Gazebo simülasyonuna aktarıldı.",
+      }],
+    ],
     facts: [
       ["facts.location", { en: "Ankara, Türkiye", tr: "Ankara, Türkiye" }],
       ["facts.university", { en: "Ankara University", tr: "Ankara Üniversitesi" }],
@@ -251,6 +273,9 @@
     $("#menu-toggle").setAttribute("aria-label", t("menu.label"));
 
     $("#about-text").innerHTML = data.about.map((p) => `<p>${esc(L(p))}</p>`).join("");
+    $("#tech-list").innerHTML = data.tech.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(L(v))}</dd></div>`).join("");
+    const cv = lang === "tr" ? "Yigit_Ozcelik_CV_TR.pdf" : "Yigit_Ozcelik_CV.pdf";
+    $("#cv-link").setAttribute("href", "assets/" + cv);
     $("#facts").innerHTML = data.facts.map(([k, v]) => `<div><dt>${esc(t(k))}</dt><dd>${esc(L(v))}</dd></div>`).join("");
     $("#education").innerHTML = data.education.map(rowCard).join("");
     $("#experience-list").innerHTML = data.experience.map(rowCard).join("");

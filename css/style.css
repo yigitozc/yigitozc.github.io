@@ -130,6 +130,14 @@ h1 .ch {
   animation: rise .8s cubic-bezier(.2, .8, .2, 1) backwards;
 }
 @keyframes rise { from { opacity: 0; transform: translateY(42%) rotate(4deg); } }
+.cv-link {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 15px; font-weight: 500; color: var(--accent);
+  text-decoration: none; margin-bottom: 16px;
+}
+.cv-link svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.cv-link span { border-bottom: 1px solid currentColor; }
+.cv-link:hover span { border-bottom-color: transparent; }
 .rotator { font: 500 clamp(15px, 1.4vw, 18px)/1.6 var(--mono); color: var(--accent); min-height: 1.6em; margin: 0 0 14px; }
 .caret { display: inline-block; width: .55em; height: 1.05em; margin-left: 3px; vertical-align: -.16em; background: var(--accent-fill); animation: blink 1s steps(1) infinite; }
 @keyframes blink { 50% { opacity: 0; } }
@@ -209,6 +217,11 @@ h2 { font-family: var(--display); font-size: clamp(30px, 3.6vw, 42px); font-weig
 .about-grid { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(280px, 1fr); gap: 56px; align-items: start; }
 .prose p { margin: 0 0 16px; color: var(--muted); }
 .prose p:first-child { font-size: clamp(20px, 2vw, 23px); line-height: 1.45; color: var(--text); }
+.tech { margin: 0; }
+.tech > div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 2px 18px; padding: 12px 0; border-top: 1px solid var(--line); }
+.tech > div:first-child { border-top: 0; padding-top: 2px; }
+.tech dt { font: 500 13.5px/1.6 var(--mono); color: var(--accent); }
+.tech dd { margin: 0; font-size: 15.5px; line-height: 1.55; color: var(--muted); }
 .profile { padding: 28px; }
 .profile img { width: 104px; height: 104px; border-radius: 50%; border: 1px solid var(--line); margin-bottom: 16px; }
 .profile-name { font-size: 20px; font-weight: 600; margin: 0; }
@@ -351,6 +364,7 @@ h2 { font-family: var(--display); font-size: clamp(30px, 3.6vw, 42px); font-weig
 
 @media (max-width: 620px) {
   .pipeline { grid-template-columns: minmax(0, 1fr); }
+  .tech > div { grid-template-columns: minmax(0, 1fr); }
   .communities { grid-template-columns: minmax(0, 1fr); }
   .skills { grid-template-columns: minmax(0, 1fr); }
   .row-card { padding: 20px; gap: 14px; }
