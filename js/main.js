@@ -18,57 +18,76 @@
         tr: "Bunun yanında web uygulamaları geliştiriyor, üniversitemdeki öğrenci topluluklarında aktif olarak yer alıyorum.",
       },
     ],
+    facts: [
+      ["facts.location", { en: "Ankara, Türkiye", tr: "Ankara, Türkiye" }],
+      ["facts.university", { en: "Ankara University", tr: "Ankara Üniversitesi" }],
+      ["facts.focus", { en: "Autonomous systems, web", tr: "Otonom sistemler, web" }],
+    ],
     education: [
       {
-        school: { en: "Ankara University", tr: "Ankara Üniversitesi" },
+        tile: "AÜ",
+        title: { en: "Ankara University", tr: "Ankara Üniversitesi" },
         meta: { en: "B.Sc. Computer Engineering · 2025 – present", tr: "Bilgisayar Mühendisliği, lisans · 2025 – devam ediyor" },
+      },
+    ],
+    experience: [
+      {
+        tile: "MTA",
+        title: { en: "National Technology Workshop (MTA)", tr: "Milli Teknoloji Atölyesi (MTA)" },
+        meta: { en: "Workshop tracking system · Frontend development", tr: "Atölye takip sistemi · Frontend geliştirme" },
+        text: {
+          en: "I work on the frontend of the workshop's tracking system, a progressive web app where students request materials and workshop staff manage approvals and hand-overs.",
+          tr: "Atölyenin takip sisteminin frontend tarafında çalışıyorum: öğrencilerin malzeme talep ettiği, atölye çalışanlarının onay ve teslim süreçlerini yönettiği bir progresif web uygulaması.",
+        },
+        tags: ["React", "TypeScript", "Vite", "TanStack", "Tailwind CSS", "Keycloak"],
       },
     ],
     competitions: [
       {
         title: { en: "TEKNOFEST 2026 Robotaxi Passenger Autonomous Vehicle Competition", tr: "TEKNOFEST 2026 Robotaksi Binek Otonom Araç Yarışması" },
-        meta: { en: "Ready-made vehicle category · Team AUtomotion-R · Finalist", tr: "Hazır araç kategorisi · AUtomotion-R takımı · Finalist" },
+        meta: { en: "Ready-made vehicle category · Team AUtomotion-R", tr: "Hazır araç kategorisi · AUtomotion-R takımı" },
+        badge: { en: "Finalist", tr: "Finalist" },
         text: {
           en: "An end-to-end autonomy stack for the BEE1 passenger vehicle, built for static and dynamic traffic scenarios on a closed track: passenger pick-ups in a set order, obstacle avoidance and parking.",
           tr: "BEE1 binek aracı için, kapalı pistte statik ve dinamik trafik senaryolarına yönelik uçtan uca otonom sürüş yazılımı: belirli sırayla yolcu alma, engelden kaçınma ve park etme.",
         },
-        spec: [
-          [{ en: "My role", tr: "Katkım" }, {
-            en: "Started on the autonomous bus-stop manoeuvre: detecting the stop sign, entering the bay on a wide arc so the rear wheels clear the kerb, confirming a full stop with IMU data and rejoining the lane. Later grew to cover the architecture of the whole system.",
-            tr: "İşe otonom durak manevrasıyla başladım: durak tabelasını algılama, arka tekerlekler kaldırıma çarpmadan geniş bir yayla cebe girme, tam duruşu IMU verisiyle doğrulama ve şeride geri dönme. Sonrasında sistemin tüm mimarisine hâkim oldum.",
-          }],
-          [{ en: "Perception", tr: "Algı" }, {
+        role: {
+          en: "Started on the autonomous bus-stop manoeuvre: detecting the stop sign, entering the bay on a wide arc so the rear wheels clear the kerb, confirming a full stop with IMU data and rejoining the lane. Later grew to cover the architecture of the whole system.",
+          tr: "İşe otonom durak manevrasıyla başladım: durak tabelasını algılama, arka tekerlekler kaldırıma çarpmadan geniş bir yayla cebe girme, tam duruşu IMU verisiyle doğrulama ve şeride geri dönme. Sonrasında sistemin tüm mimarisine hâkim oldum.",
+        },
+        pipeline: [
+          ["perception", { en: "Perception", tr: "Algı" }, {
             en: "Lane detection with a CLRerNet model fine-tuned on track data, traffic sign and light detection with YOLO, and Velodyne lidar processing that reports the nearest obstacle in each zone around the vehicle.",
             tr: "Pist verisiyle ince ayar yapılmış CLRerNet modeliyle şerit algılama, YOLO ile trafik işareti ve ışık tespiti, Velodyne LiDAR verisinden aracın çevresindeki her bölge için en yakın engelin çıkarılması.",
           }],
-          [{ en: "Localization", tr: "Konumlama" }, {
+          ["localization", { en: "Localization", tr: "Konumlama" }, {
             en: "Map-frame pose from an Xsens MTi GNSS/INS unit, supported by wheel odometry.",
             tr: "Xsens MTi GNSS/INS biriminden harita çerçevesinde poz kestirimi, teker odometrisiyle destekleniyor.",
           }],
-          [{ en: "Planning", tr: "Planlama" }, {
+          ["planning", { en: "Planning", tr: "Planlama" }, {
             en: "A* routing between map zones, Lanelet2 centre-line following and a behaviour tree for decisions such as overtaking and parking. Without RTK, GNSS error (1.5 m) is half of a 3.1 m lane, so the map defines the path shape while the camera measures lateral offset.",
             tr: "Harita bölgeleri arasında A* ile rota, Lanelet2 merkez hattı takibi, sollama ve park gibi kararlar için davranış ağacı. RTK olmadan GNSS hatası (1,5 m) 3,1 m'lik şeridin yarısına denk geldiği için yolun şeklini harita, yanal kaymayı kamera belirliyor.",
           }],
-          [{ en: "Control", tr: "Kontrol" }, {
+          ["control", { en: "Control", tr: "Kontrol" }, {
             en: "Lane following and overtaking controller, the only node that writes steering and throttle commands to the vehicle's CAN bus.",
             tr: "Şerit takibi ve sollama kontrolcüsü; aracın CAN hattına direksiyon ve gaz komutu yazan tek düğüm.",
           }],
-          [{ en: "Deployment", tr: "Dağıtım" }, {
+          ["deployment", { en: "Deployment", tr: "Dağıtım" }, {
             en: "ROS 2 Foxy packaged as a single GPU Docker image on the vehicle, with a simulation bridge and scenario tests for each competition day.",
             tr: "Araçta tek bir GPU'lu Docker imajı olarak çalışan ROS 2 Foxy; simülasyon köprüsü ve her yarışma günü için senaryo testleri.",
           }],
         ],
-        stack: "ROS 2 · Python · C++ · PyTorch · Lanelet2 · Docker · CAN",
+        tags: ["ROS 2", "Python", "C++", "PyTorch", "Lanelet2", "Docker", "CAN"],
       },
     ],
     projects: [
       {
         title: { en: "MTA Workshop Inventory", tr: "MTA Atölye Malzeme Takip Sistemi" },
         text: {
-          en: "Inventory and request system for the National Technology Workshop. Students request parts, and coordinators approve and hand them out.",
-          tr: "Milli Teknoloji Atölyesi için malzeme ve talep sistemi. Öğrenciler talep oluşturur, koordinatörler onaylayıp teslim eder.",
+          en: "Simplified inventory and request system for the workshop. Students request parts, and coordinators approve and hand them out.",
+          tr: "Atölye için sadeleştirilmiş malzeme ve talep sistemi. Öğrenciler talep oluşturur, koordinatörler onaylayıp teslim eder.",
         },
-        stack: "HTML · CSS · JavaScript",
+        tags: ["HTML", "CSS", "JavaScript"],
         link: "https://github.com/yigitozc/mta-atolye-takip",
       },
       {
@@ -77,7 +96,7 @@
           en: "This site. The simulation at the top implements frontier-based exploration: lidar ray casting, an occupancy grid, A* replanning and path tracking, with no libraries.",
           tr: "Bu site. Üstteki simülasyon sınır tabanlı keşfi uyguluyor: LiDAR ışın izleme, doluluk ızgarası, A* ile yeniden planlama ve yol takibi; harici kütüphane kullanılmadan.",
         },
-        stack: "HTML · CSS · JavaScript · Canvas",
+        tags: ["HTML", "CSS", "JavaScript", "Canvas"],
         link: "https://github.com/yigitozc/yigitozc.github.io",
       },
     ],
@@ -89,7 +108,7 @@
           en: "Gazebo and RViz test field for the unmanned ground vehicle stage of TEKNOFEST Advanced Autonomous Systems: a 50×50 m rubble field with seed-generated corridors and a scoring measure.",
           tr: "TEKNOFEST İleri Otonom Sistemler yarışmasının insansız kara aracı aşaması için Gazebo ve RViz test sahası: tohumdan üretilen koridorlara sahip 50×50 m moloz alanı ve puanlama ölçümü.",
         },
-        stack: "ROS 2 · Gazebo · RViz · Python",
+        tags: ["ROS 2", "Gazebo", "RViz", "Python"],
       },
       {
         title: { en: "Edge AI Perception Pod", tr: "Edge AI Otonom Algı Podu" },
@@ -97,15 +116,15 @@
           en: "HackAntarktika project: an edge AI perception module for polar field conditions.",
           tr: "HackAntarktika projesi: kutup saha koşulları için uç yapay zekâ tabanlı bir algı modülü.",
         },
-        stack: "YOLO · IMU · Docker",
+        tags: ["Edge AI"],
       },
       {
-        title: { en: "MTA Management Platform", tr: "MTA Yönetim Platformu" },
+        title: { en: "MTA Tracking Platform", tr: "MTA Takip Platformu" },
         text: {
-          en: "Team project and the full-scale version of the workshop system, with a separate frontend, an API gateway, a Java backend and end-to-end tests.",
-          tr: "Atölye sisteminin tam ölçekli sürümü olan takım projesi: ayrı frontend, API gateway, Java backend ve uçtan uca testler.",
+          en: "Team project and the full-scale workshop tracking system, with a separate frontend, an API gateway, a Java backend and end-to-end tests. I work on the frontend.",
+          tr: "Atölye takip sisteminin tam ölçekli sürümü olan takım projesi: ayrı frontend, API gateway, Java backend ve uçtan uca testler. Frontend tarafında çalışıyorum.",
         },
-        stack: "Java · Maven · Playwright",
+        tags: ["React", "TypeScript", "Java", "Playwright"],
       },
       {
         title: { en: "Mola Boutique Café", tr: "Mola Butik Kafe" },
@@ -113,7 +132,7 @@
           en: "Café website without a framework. The menu and occupancy status load from JSON, with an automatic slider and accessible dialogs.",
           tr: "Framework kullanılmadan yazılmış kafe sitesi. Menü ve doluluk durumu JSON'dan yükleniyor; otomatik slayt ve erişilebilir modal pencereler içeriyor.",
         },
-        stack: "HTML · CSS · JavaScript",
+        tags: ["HTML", "CSS", "JavaScript"],
       },
       {
         title: { en: "UGV 3D Model", tr: "İKA 3D Modeli" },
@@ -121,39 +140,47 @@
           en: "Compact Blender model of the unmanned ground vehicle, with suspension and laser animations.",
           tr: "İnsansız kara aracının Blender'da hazırlanmış kompakt modeli; süspansiyon ve lazer animasyonları içeriyor.",
         },
-        stack: "Blender",
+        tags: ["Blender"],
       },
     ],
     skills: [
-      [{ en: "Programming", tr: "Programlama" }, "Python, C++, Java, JavaScript, HTML, CSS"],
-      [{ en: "Robotics", tr: "Robotik" }, "ROS 2, Gazebo, CARLA, RViz, YOLO, OpenCV, Blender"],
-      [{ en: "Tools", tr: "Araçlar" }, "Linux, Docker, Git, Maven, Playwright"],
+      [{ en: "Programming", tr: "Programlama" }, ["Python", "C++", "Java", "JavaScript", "TypeScript"]],
+      [{ en: "Robotics", tr: "Robotik" }, ["ROS 2", "Gazebo", "CARLA", "RViz", "YOLO", "OpenCV", "Blender"]],
+      [{ en: "Web", tr: "Web" }, ["React", "HTML", "CSS", "Tailwind CSS", "Vite"]],
+      [{ en: "Tools", tr: "Araçlar" }, ["Linux", "Docker", "Git", "Maven", "Playwright"]],
     ],
     languages: [
-      [{ en: "Turkish", tr: "Türkçe" }, { en: "Native", tr: "Ana dil" }],
-      [{ en: "English", tr: "İngilizce" }, { en: "Limited working proficiency", tr: "Sınırlı mesleki yeterlilik" }],
-      [{ en: "Japanese", tr: "Japonca" }, { en: "Elementary proficiency", tr: "Başlangıç seviyesi" }],
+      [{ en: "Turkish", tr: "Türkçe" }, { en: "Native", tr: "Ana dil" }, 100],
+      [{ en: "English", tr: "İngilizce" }, { en: "Limited working proficiency", tr: "Sınırlı mesleki yeterlilik" }, 55],
+      [{ en: "Japanese", tr: "Japonca" }, { en: "Elementary proficiency", tr: "Başlangıç seviyesi" }, 22],
     ],
     certs: [
       {
+        tile: "PY",
         title: { en: "Programming with Python", tr: "Python ile Programlama Eğitimi" },
         meta: { en: "MATHCOM, Ankara University · November 2025", tr: "MATHCOM, Ankara Üniversitesi · Kasım 2025" },
       },
     ],
     communities: [
       {
+        tile: "CORE",
         title: { en: "CORE Student Community", tr: "CORE Öğrenci Topluluğu" },
         meta: { en: "Board Member · Ankara University · 2025 – present", tr: "Yönetim Kurulu Üyesi · Ankara Üniversitesi · 2025 – devam ediyor" },
       },
       {
+        tile: "AU-R",
         title: { en: "AUtomotion-R", tr: "AUtomotion-R" },
         meta: { en: "Autonomous vehicle team", tr: "Otonom araç takımı" },
       },
-      {
-        title: { en: "National Technology Workshop (MTA)", tr: "Milli Teknoloji Atölyesi (MTA)" },
-        meta: { en: "Ankara University", tr: "Ankara Üniversitesi" },
-      },
     ],
+  };
+
+  const ICONS = {
+    perception: '<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+    localization: '<path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+    planning: '<circle cx="6" cy="19" r="2.5"/><circle cx="18" cy="5" r="2.5"/><path d="M8.5 19H15a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h6.5"/>',
+    control: '<path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>',
+    deployment: '<path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/>',
   };
 
   // ---------- storage (may be unavailable) ----------
@@ -168,9 +195,30 @@
   const t = (key) => window.I18N[lang][key] ?? key;
   const L = (obj) => obj[lang];
   const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  const delay = (i) => `style="--d:${Math.min(i, 5) * 70}ms"`;
+  const tags = (list) => `<div class="tags">${list.map((x) => `<span class="tag">${esc(x)}</span>`).join("")}</div>`;
 
-  const plainEntry = (e) => `<div class="entry"><h3>${esc(L(e.title ?? e.school))}</h3><p class="meta">${esc(L(e.meta))}</p></div>`;
-  const specRow = (k, v) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`;
+  const rowCard = (e, i = 0) => `
+    <article class="card row-card lift reveal" ${delay(i)}>
+      <span class="tile" aria-hidden="true">${esc(e.tile)}</span>
+      <div>
+        <h3>${esc(L(e.title))}</h3>
+        <p class="meta">${esc(L(e.meta))}</p>
+        ${e.text ? `<p class="text">${esc(L(e.text))}</p>` : ""}
+        ${e.tags ? tags(e.tags) : ""}
+      </div>
+    </article>`;
+
+  const projectCard = (p, i) => `
+    <article class="card project lift reveal" ${delay(i)}>
+      <div class="project-top">
+        <h4>${esc(L(p.title))}</h4>
+        <span class="badge${p.link ? " accent" : ""}">${esc(t(p.link ? "project.badgeOpen" : "project.badgePrivate"))}</span>
+      </div>
+      <p>${esc(L(p.text))}</p>
+      ${tags(p.tags)}
+      ${p.link ? `<a class="more" href="${p.link}" target="_blank" rel="noopener">${esc(t("project.view"))}</a>` : ""}
+    </article>`;
 
   function render() {
     document.documentElement.lang = lang;
@@ -182,35 +230,62 @@
     $("#menu-toggle").setAttribute("aria-label", t("menu.label"));
 
     $("#about-text").innerHTML = data.about.map((p) => `<p>${esc(L(p))}</p>`).join("");
-    $("#education").innerHTML = data.education.map(plainEntry).join("");
+    $("#facts").innerHTML = data.facts.map(([k, v]) => `<div><dt>${esc(t(k))}</dt><dd>${esc(L(v))}</dd></div>`).join("");
+    $("#education").innerHTML = data.education.map(rowCard).join("");
+    $("#experience-list").innerHTML = data.experience.map(rowCard).join("");
     $("#competition-list").innerHTML = data.competitions.map((c) => `
-      <article class="entry">
-        <h3>${esc(L(c.title))}</h3>
-        <p class="meta">${esc(L(c.meta))}</p>
+      <article class="card feature reveal">
+        <div class="feature-head">
+          <div>
+            <h3>${esc(L(c.title))}</h3>
+            <p class="meta">${esc(L(c.meta))}</p>
+          </div>
+          <span class="badge accent">${esc(L(c.badge))}</span>
+        </div>
         <p class="text">${esc(L(c.text))}</p>
-        <dl class="spec">${c.spec.map(([k, v]) => specRow(L(k), L(v))).join("")}</dl>
-        <p class="stack">${esc(c.stack)}</p>
+        <div class="role"><strong>${esc(t("competition.role"))}</strong><p>${esc(L(c.role))}</p></div>
+        <ul class="pipeline">${c.pipeline.map(([icon, name, text]) => `
+          <li>
+            <div class="head"><svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[icon]}</svg>${esc(L(name))}</div>
+            <p>${esc(L(text))}</p>
+          </li>`).join("")}
+        </ul>
+        ${tags(c.tags)}
       </article>`).join("");
-    const projectEntry = (p) => `
-      <article class="entry">
-        <h3>${esc(L(p.title))}</h3>
-        <p class="text">${esc(L(p.text))}</p>
-        <p class="stack">${esc(p.stack)}${p.link ? ` · <a href="${p.link}" target="_blank" rel="noopener">${esc(t("project.view"))}</a>` : ""}</p>
-      </article>`;
-    $("#project-list").innerHTML =
-      `<h3 class="label">${esc(t("projects.open"))}</h3>${data.projects.map(projectEntry).join("")}` +
-      `<h3 class="label">${esc(t("projects.other"))}</h3>${data.otherProjects.map(projectEntry).join("")}`;
-    $("#skill-list").innerHTML = data.skills.map(([k, v]) => specRow(L(k), v)).join("");
-    $("#language-list").innerHTML = data.languages.map(([k, v]) => specRow(L(k), L(v))).join("");
-    $("#cert-list").innerHTML = data.certs.map(plainEntry).join("");
-    $("#community-list").innerHTML = data.communities.map(plainEntry).join("");
+    $("#project-list").innerHTML = `
+      <h3 class="label reveal">${esc(t("projects.open"))}</h3>
+      <div class="project-grid">${data.projects.map(projectCard).join("")}</div>
+      <h3 class="label reveal">${esc(t("projects.other"))}</h3>
+      <div class="project-grid thirds">${data.otherProjects.map(projectCard).join("")}</div>`;
+    $("#skill-list").innerHTML = data.skills.map(([title, items], i) => `
+      <div class="card skill-group lift reveal" ${delay(i)}>
+        <h3>${esc(L(title))}</h3>
+        <div class="chips">${items.map((s) => `<span class="chip">${esc(s)}</span>`).join("")}</div>
+      </div>`).join("");
+    $("#language-list").innerHTML = data.languages.map(([name, level, w]) => `
+      <div>
+        <div class="row"><span class="name">${esc(L(name))}</span><span class="lvl">${esc(L(level))}</span></div>
+        <div class="bar"><i style="--w:${w}%"></i></div>
+      </div>`).join("");
+    $("#cert-list").innerHTML = data.certs.map(rowCard).join("");
+    $("#community-list").innerHTML = data.communities.map(rowCard).join("");
     paintHud();
   }
+
+  // ---------- reveal on scroll ----------
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((en) => {
+      if (en.isIntersecting) { en.target.classList.add("in"); revealObserver.unobserve(en.target); }
+    });
+  }, { threshold: 0.08, rootMargin: "0px 0px -6% 0px" });
+  const observeReveals = () => document.querySelectorAll(".reveal:not(.in)").forEach((el) => revealObserver.observe(el));
 
   $("#lang-toggle").addEventListener("click", () => {
     lang = lang === "en" ? "tr" : "en";
     store.set("lang", lang);
     render();
+    // Freshly rendered cards shouldn't replay their entrance on a language switch.
+    document.querySelectorAll(".reveal:not(.in)").forEach((el) => el.classList.add("in"));
   });
 
   // ---------- theme ----------
@@ -253,4 +328,5 @@
   const sim = window.createSim($("#sim"), (state) => { hud = state; paintHud(); });
 
   render();
+  observeReveals();
 })();

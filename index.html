@@ -14,9 +14,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=3">
+  <link rel="stylesheet" href="css/style.css?v=4">
   <script>
     // Apply the saved theme before first paint to avoid a flash.
+    document.documentElement.classList.add("js");
     try {
       const t = localStorage.getItem("theme");
       if (t) document.documentElement.dataset.theme = t;
@@ -30,6 +31,7 @@
     <a class="brand" href="#top">Yiğit Özçelik</a>
     <nav class="nav-links" id="nav-links" aria-label="Sections">
       <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#experience" data-i18n="nav.experience">Experience</a>
       <a href="#competitions" data-i18n="nav.competitions">Competitions</a>
       <a href="#projects" data-i18n="nav.projects">Projects</a>
       <a href="#skills" data-i18n="nav.skills">Skills</a>
@@ -49,12 +51,12 @@
 
   <section class="hero" id="top">
     <div class="hero-text">
+      <a class="hero-badge" href="#competitions"><span class="dot" aria-hidden="true"></span><span data-i18n="hero.badge"></span></a>
       <h1>Yiğit Özçelik</h1>
       <p class="lead" data-i18n="hero.lead"></p>
       <p class="hero-links">
-        <a href="#competitions" data-i18n="hero.work"></a>
-        <a href="https://www.linkedin.com/in/yi%C4%9Fit-%C3%B6z%C3%A7elik-386645382" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/yigitozc" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn primary" href="#competitions" data-i18n="hero.work"></a>
+        <a class="btn" href="#contact" data-i18n="hero.contact"></a>
       </p>
     </div>
     <figure class="hero-sim">
@@ -74,57 +76,115 @@
   </section>
 
   <main id="main">
-    <section class="row" id="about">
-      <h2 data-i18n="about.title"></h2>
-      <div class="body">
-        <div class="prose" id="about-text"></div>
-        <h3 class="label" data-i18n="edu.title"></h3>
-        <div id="education"></div>
+    <section class="section" id="about">
+      <div class="wrap">
+        <h2 class="reveal" data-i18n="about.title"></h2>
+        <div class="about-grid">
+          <div>
+            <div class="prose reveal" id="about-text"></div>
+            <h3 class="label reveal" data-i18n="edu.title"></h3>
+            <div id="education"></div>
+          </div>
+          <aside class="card profile reveal" aria-label="Profile">
+            <img src="https://avatars.githubusercontent.com/u/254345672?v=4" alt="Yiğit Özçelik" width="104" height="104" loading="lazy">
+            <p class="profile-name">Yiğit Özçelik</p>
+            <p class="profile-role" data-i18n="profile.role"></p>
+            <dl id="facts"></dl>
+            <div class="profile-links">
+              <a href="https://www.linkedin.com/in/yi%C4%9Fit-%C3%B6z%C3%A7elik-386645382" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+              <a href="https://github.com/yigitozc" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+            </div>
+          </aside>
+        </div>
       </div>
     </section>
 
-    <section class="row" id="competitions">
-      <h2 data-i18n="competitions.title"></h2>
-      <div class="body" id="competition-list"></div>
-    </section>
-
-    <section class="row" id="projects">
-      <h2 data-i18n="projects.title"></h2>
-      <div class="body" id="project-list"></div>
-    </section>
-
-    <section class="row" id="skills">
-      <h2 data-i18n="skills.title"></h2>
-      <div class="body">
-        <dl class="spec" id="skill-list"></dl>
-        <h3 class="label" data-i18n="langs.title"></h3>
-        <dl class="spec" id="language-list"></dl>
-        <h3 class="label" data-i18n="certs.title"></h3>
-        <div id="cert-list"></div>
+    <section class="section" id="experience">
+      <div class="wrap">
+        <h2 class="reveal" data-i18n="experience.title"></h2>
+        <div id="experience-list"></div>
       </div>
     </section>
 
-    <section class="row" id="communities">
-      <h2 data-i18n="communities.title"></h2>
-      <div class="body" id="community-list"></div>
+    <section class="section" id="competitions">
+      <div class="wrap">
+        <h2 class="reveal" data-i18n="competitions.title"></h2>
+        <div id="competition-list"></div>
+      </div>
     </section>
 
-    <section class="row" id="contact">
-      <h2 data-i18n="contact.title"></h2>
-      <div class="body">
-        <dl class="spec">
-          <div><dt data-i18n="contact.email"></dt><dd><a href="mailto:yigitozcelik88@gmail.com">yigitozcelik88@gmail.com</a></dd></div>
-          <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/yi%C4%9Fit-%C3%B6z%C3%A7elik-386645382" target="_blank" rel="noopener">in/yiğit-özçelik</a></dd></div>
-          <div><dt>GitHub</dt><dd><a href="https://github.com/yigitozc" target="_blank" rel="noopener">yigitozc</a></dd></div>
-        </dl>
+    <section class="section" id="projects">
+      <div class="wrap">
+        <h2 class="reveal" data-i18n="projects.title"></h2>
+        <div id="project-list"></div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="wrap">
+        <h2 class="reveal" data-i18n="skills.title"></h2>
+        <div class="skills" id="skill-list"></div>
+        <div class="two-col">
+          <div>
+            <h3 class="label reveal" data-i18n="langs.title"></h3>
+            <div class="card langs reveal" id="language-list"></div>
+          </div>
+          <div>
+            <h3 class="label reveal" data-i18n="certs.title"></h3>
+            <div id="cert-list"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="communities">
+      <div class="wrap">
+        <h2 class="reveal" data-i18n="communities.title"></h2>
+        <div class="communities" id="community-list"></div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="wrap">
+        <div class="contact-panel reveal">
+          <svg class="contact-route" viewBox="0 0 600 320" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+            <path d="M-20 290 C120 290 150 170 270 170 S420 240 480 150 S540 60 620 40"/>
+            <g transform="translate(480 150)"><circle r="8"/><path d="M-15 0h7M8 0h7M0-15v7M0 8v7"/></g>
+          </svg>
+          <div class="contact-copy">
+            <h2 data-i18n="contact.title"></h2>
+            <p data-i18n="contact.p"></p>
+            <p class="contact-place">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              Ankara, Türkiye
+            </p>
+          </div>
+          <div class="contact-links">
+            <a class="contact-link" href="https://www.linkedin.com/in/yi%C4%9Fit-%C3%B6z%C3%A7elik-386645382" target="_blank" rel="noopener">
+              <svg class="fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              <span><strong>LinkedIn</strong><small data-i18n="contact.linkedin"></small></span>
+              <i aria-hidden="true">→</i>
+            </a>
+            <a class="contact-link" href="https://github.com/yigitozc" target="_blank" rel="noopener">
+              <svg class="fill" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+              <span><strong>GitHub</strong><small data-i18n="contact.github"></small></span>
+              <i aria-hidden="true">→</i>
+            </a>
+            <a class="contact-link" href="mailto:yigitozcelik88@gmail.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
+              <span><strong data-i18n="contact.email"></strong><small data-i18n="contact.emailNote"></small></span>
+              <i aria-hidden="true">→</i>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">© <span id="year"></span> Yiğit Özçelik</footer>
 
-  <script src="js/i18n.js?v=3"></script>
-  <script src="js/sim.js?v=3"></script>
-  <script src="js/main.js?v=3"></script>
+  <script src="js/i18n.js?v=4"></script>
+  <script src="js/sim.js?v=4"></script>
+  <script src="js/main.js?v=4"></script>
 </body>
 </html>
