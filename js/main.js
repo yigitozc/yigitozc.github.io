@@ -330,9 +330,10 @@
 
   // ---------- hero rotating line ----------
   const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let rotatorTimer = 0;
+  let rotatorTimer = 0, nameDone = false;
 
   function startRotator() {
+    if (!nameDone) return;
     clearTimeout(rotatorTimer);
     const el = $("#rotator-text"), words = L(data.heroWords);
     if (calm) { el.textContent = words[0]; return; }
@@ -346,6 +347,57 @@
       rotatorTimer = setTimeout(tick, wait);
     };
     tick();
+  }
+
+  // Types the name once, then leaves it in place with a brief glitch every few seconds.
+  function setupName() {
+    const h1 = $("#name"), name = h1.textContent;
+    const finish = () => { nameDone = true; startRotator(); };
+    if (calm) { finish(); return; }
+
+    h1.innerHTML = '<span class="typed" aria-hidden="true"></span><span class="type-caret" aria-hidden="true"></span><span class="rest" aria-hidden="true"></span>';
+    const [typed, caret, rest] = h1.children;
+    rest.textContent = name;
+
+    const GLYPHS = "#%/<>_01*";
+    const scheduleGlitch = () => setTimeout(() => {
+      if (document.hidden || h1.getBoundingClientRect().bottom < 0) scheduleGlitch();
+      else glitch();
+    }, 5000 + Math.random() * 6000);
+
+    function glitch() {
+      let frame = 0;
+      h1.classList.add("glitching");
+      const scramble = () => {
+        if (frame++ === 4) {
+          typed.textContent = name;
+          h1.classList.remove("glitching");
+          scheduleGlitch();
+          return;
+        }
+        const chars = [...name];
+        for (let k = 0; k < 2; k++) {
+          const i = Math.floor(Math.random() * chars.length);
+          if (chars[i] !== " ") chars[i] = GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+        }
+        typed.textContent = chars.join("");
+        setTimeout(scramble, 70);
+      };
+      scramble();
+    }
+
+    let n = 0;
+    const type = () => {
+      n++;
+      typed.textContent = name.slice(0, n);
+      rest.textContent = name.slice(n);
+      if (n < name.length) {
+        setTimeout(type, name[n - 1] === " " ? 260 : 85 + Math.random() * 70);
+        return;
+      }
+      setTimeout(() => { caret.remove(); finish(); scheduleGlitch(); }, 450);
+    };
+    setTimeout(type, 350);
   }
 
   // ---------- reveal on scroll ----------
@@ -403,6 +455,7 @@
 
   const sim = window.createSim($("#sim"), (state) => { hud = state; paintHud(); });
 
+  setupName();
   render();
   observeReveals();
 })();

@@ -16,7 +16,7 @@
   --sim-hit: #39424e;
   --shadow: 0 14px 34px -22px rgba(21, 25, 31, .35);
   --radius: 12px;
-  --name: "Anton", Impact, "Arial Narrow", sans-serif;
+  --name: "Courier Prime", "Courier New", monospace;
   --display: "Bricolage Grotesque", "IBM Plex Sans", system-ui, sans-serif;
   --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Ubuntu, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
@@ -114,17 +114,38 @@ button { font: inherit; color: inherit; }
 
 /* hero */
 .hero {
-  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); grid-template-rows: auto 1fr;
-  min-height: min(calc(100svh - 60px), 900px);
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  min-height: min(calc(100svh - 60px), 760px);
   border-bottom: 1px solid var(--line);
 }
-.hero-name { grid-column: 1 / -1; container-type: inline-size; overflow: hidden; margin: clamp(10px, 1.6vw, 24px) var(--gutter) 0; }
-.hero-text { align-self: center; padding: 28px 32px 44px var(--gutter); }
-/* The name fills the row: Anton sets this string about 4.9 times as wide as its font size. */
+.hero-text { align-self: center; container-type: inline-size; padding: 64px 32px 64px var(--gutter); }
 h1 {
-  font-family: var(--name); font-size: calc(100cqw / 4.9); font-weight: 400;
-  line-height: 1.3; white-space: nowrap;
-  margin: 0;
+  position: relative; width: max-content; white-space: nowrap;
+  font-family: var(--name); font-weight: 700; font-size: min(calc(100cqw / 7.45), 68px);
+  line-height: 1.12; letter-spacing: -.04em;
+  margin: 0 0 14px;
+}
+h1 .rest { visibility: hidden; }
+h1 .type-caret { position: relative; display: inline-block; width: 0; height: .8em; }
+h1 .type-caret::after { content: ""; position: absolute; left: .05em; top: 0; bottom: 0; width: .46em; background: var(--accent-fill); }
+h1.glitching::before, h1.glitching::after {
+  content: attr(data-text); position: absolute; inset: 0; background: var(--bg);
+}
+h1.glitching::before { color: var(--sim-accent); animation: glitch-a .28s steps(1) both; }
+h1.glitching::after { color: #8fb7d6; animation: glitch-b .28s steps(1) both; }
+@keyframes glitch-a {
+  0% { clip-path: inset(12% 0 62% 0); transform: translateX(-5px); }
+  25% { clip-path: inset(58% 0 18% 0); transform: translateX(4px); }
+  50% { clip-path: inset(30% 0 42% 0); transform: translateX(-3px); }
+  75% { clip-path: inset(70% 0 8% 0); transform: translateX(5px); }
+  100% { clip-path: inset(100%); }
+}
+@keyframes glitch-b {
+  0% { clip-path: inset(66% 0 12% 0); transform: translateX(4px); }
+  25% { clip-path: inset(20% 0 56% 0); transform: translateX(-5px); }
+  50% { clip-path: inset(48% 0 26% 0); transform: translateX(3px); }
+  75% { clip-path: inset(8% 0 70% 0); transform: translateX(-4px); }
+  100% { clip-path: inset(100%); }
 }
 .cv-link {
   display: inline-flex; align-items: center; gap: 7px;
@@ -149,7 +170,7 @@ h1 {
 .btn:hover { transform: translateY(-2px); border-color: var(--text); }
 .btn.primary { background: var(--accent-fill); border-color: var(--accent-fill); color: var(--on-accent); }
 
-.hero-sim { position: relative; margin: 0; min-width: 0; min-height: 400px; display: flex; flex-direction: column; }
+.hero-sim { position: relative; margin: 0; min-width: 0; display: flex; flex-direction: column; }
 .sim-stage { position: relative; flex: 1; min-height: 0; }
 #sim {
   position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: crosshair;
@@ -349,8 +370,7 @@ h2 { font-family: var(--display); font-size: clamp(30px, 3.6vw, 42px); font-weig
 
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; min-height: 0; }
-  .hero-text { padding: 20px var(--gutter) 36px; }
-  .hero-sim { min-height: 0; }
+  .hero-text { padding: 48px var(--gutter) 36px; }
   .sim-stage { flex: none; height: 340px; border-top: 1px solid var(--line); }
   #sim { -webkit-mask-image: none; mask-image: none; }
   .hero-sim figcaption { padding: 12px var(--gutter) 16px; }
