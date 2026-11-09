@@ -16,6 +16,7 @@
   --sim-hit: #39424e;
   --shadow: 0 14px 34px -22px rgba(21, 25, 31, .35);
   --radius: 12px;
+  --name: "Instrument Serif", Georgia, serif;
   --display: "Bricolage Grotesque", "IBM Plex Sans", system-ui, sans-serif;
   --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Ubuntu, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
@@ -119,17 +120,11 @@ button { font: inherit; color: inherit; }
 }
 .hero-text { align-self: center; padding: 64px 32px 64px var(--gutter); }
 h1 {
-  font-family: var(--display); font-size: clamp(60px, 8.2vw, 122px); font-weight: 560;
-  line-height: .94; letter-spacing: -.035em;
-  margin: 0 0 18px;
+  font-family: var(--name); font-size: clamp(76px, 10.4vw, 156px); font-weight: 400;
+  line-height: .9; letter-spacing: -.02em;
+  margin: 0 0 22px;
 }
-h1 .word { display: block; white-space: nowrap; }
-h1 .ch {
-  display: inline-block;
-  color: color-mix(in srgb, var(--sim-accent) calc(var(--p, 0) * 100%), var(--text));
-  animation: rise .8s cubic-bezier(.2, .8, .2, 1) backwards;
-}
-@keyframes rise { from { opacity: 0; transform: translateY(42%) rotate(4deg); } }
+h1 em { display: block; font-style: italic; }
 .cv-link {
   display: inline-flex; align-items: center; gap: 7px;
   font-size: 15px; font-weight: 500; color: var(--accent);
@@ -379,7 +374,7 @@ h2 { font-family: var(--display); font-size: clamp(30px, 3.6vw, 42px); font-weig
   html { scroll-behavior: auto; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
   .ring .value { transition: none; stroke-dashoffset: calc(100 - var(--w)); }
-  h1 .ch, .caret { animation: none; }
+  .caret { animation: none; }
   .contact-route > path { stroke-dashoffset: 0; }
   .contact-panel.in .contact-route > path { animation: none; }
 }

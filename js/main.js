@@ -328,7 +328,7 @@
     startRotator();
   }
 
-  // ---------- hero name and rotating line ----------
+  // ---------- hero rotating line ----------
   const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
   let rotatorTimer = 0;
 
@@ -346,47 +346,6 @@
       rotatorTimer = setTimeout(tick, wait);
     };
     tick();
-  }
-
-  // Letters swell and warm up near the cursor; without one, a wave runs through them.
-  function setupName() {
-    const h1 = $("#name"), name = h1.textContent;
-    h1.setAttribute("aria-label", name);
-    let index = 0;
-    h1.innerHTML = name.split(" ").map((word) => `<span class="word" aria-hidden="true">${[...word].map((c) => `<span class="ch" style="animation-delay:${index++ * 45}ms">${c}</span>`).join("")}</span>`).join("");
-    if (calm) return;
-
-    const letters = [...h1.querySelectorAll(".ch")];
-    const hero = $(".hero");
-    const BASE = 560, RANGE = 210, RADIUS = 115, WAVE_EVERY = 6500, WAVE_FOR = 1500;
-    let pointer = null, raf = 0, visible = false;
-    const start = performance.now() + 1100;
-
-    function frame(now) {
-      const rects = pointer ? letters.map((l) => l.getBoundingClientRect()) : null;
-      const phase = (now - start) % WAVE_EVERY;
-      letters.forEach((l, i) => {
-        let p = 0;
-        if (rects) {
-          const d = Math.hypot(rects[i].left + rects[i].width / 2 - pointer.x, rects[i].top + rects[i].height / 2 - pointer.y);
-          p = Math.max(0, 1 - d / RADIUS);
-        } else if (now > start && phase < WAVE_FOR) {
-          const pos = (phase / WAVE_FOR) * (letters.length + 4) - 2;
-          p = Math.exp(-((i - pos) ** 2) / 3);
-        }
-        l.style.fontWeight = Math.round(BASE + p * RANGE);
-        l.style.setProperty("--p", p.toFixed(3));
-      });
-      if (visible) raf = requestAnimationFrame(frame);
-    }
-
-    hero.addEventListener("pointermove", (e) => { if (e.pointerType === "mouse") pointer = { x: e.clientX, y: e.clientY }; });
-    hero.addEventListener("pointerleave", () => { pointer = null; });
-    new IntersectionObserver(([en]) => {
-      visible = en.isIntersecting;
-      cancelAnimationFrame(raf);
-      if (visible) raf = requestAnimationFrame(frame);
-    }).observe(h1);
   }
 
   // ---------- reveal on scroll ----------
@@ -444,7 +403,6 @@
 
   const sim = window.createSim($("#sim"), (state) => { hud = state; paintHud(); });
 
-  setupName();
   render();
   observeReveals();
 })();
