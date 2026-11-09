@@ -333,7 +333,7 @@
 
     const letters = [...h1.querySelectorAll(".ch")];
     const hero = $(".hero");
-    const BASE = 560, RANGE = 210, RADIUS = 200, WAVE_EVERY = 6500, WAVE_FOR = 1500;
+    const BASE = 560, RANGE = 210, RADIUS = 115, WAVE_EVERY = 6500, WAVE_FOR = 1500;
     let pointer = null, raf = 0, visible = false;
     const start = performance.now() + 1100;
 
