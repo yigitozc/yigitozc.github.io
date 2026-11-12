@@ -5,8 +5,8 @@
   // Every visible piece of content lives here. Text fields are { en, tr }.
   const data = {
     heroWords: {
-      en: ["Autonomous ground vehicles", "Simulation and route planning", "Swarm UAVs", "Polar research", "Real-time CARLA simulation"],
-      tr: ["Otonom kara araçları", "Simülasyon ve rota planlama", "Sürü İHA", "Kutup araştırmaları", "CARLA'da gerçek zamanlı simülasyon"],
+      en: ["Robotics and automation", "Autonomous ground vehicles", "Simulation and route planning", "Swarm UAVs", "Polar research", "Real-time CARLA simulation"],
+      tr: ["Robotik ve otomasyon", "Otonom kara araçları", "Simülasyon ve rota planlama", "Sürü İHA", "Kutup araştırmaları", "CARLA'da gerçek zamanlı simülasyon"],
     },
     about: [
       {
@@ -24,8 +24,8 @@
     ],
     tech: [
       ["Python", {
-        en: "ROS 2 nodes and simulation tooling: a seed-generated Gazebo test field with automated tests, Gazebo vehicle models generated from Blender meshes, and camera and control tools around a CARLA and ROS 2 bridge.",
-        tr: "ROS 2 düğümleri ve simülasyon araçları: otomatik testli, tohumdan üretilen Gazebo test sahası; Blender mesh'lerinden Gazebo araç modeli üretimi; CARLA ve ROS 2 köprüsü etrafında kamera ve kontrol araçları.",
+        en: "ROS 2 nodes and simulation tooling: an infinite-seed Gazebo test field with batch runs across many seeds, Gazebo vehicle models generated from Blender meshes, and camera and control tools around a CARLA and ROS 2 bridge.",
+        tr: "ROS 2 düğümleri ve simülasyon araçları: çok sayıda tohumda toplu koşulan, sonsuz tohumlu Gazebo test sahası; Blender mesh'lerinden Gazebo araç modeli üretimi; CARLA ve ROS 2 köprüsü etrafında kamera ve kontrol araçları.",
       }],
       ["ROS 2", {
         en: "Autonomous bus-stop manoeuvre and the system architecture of the Robotaxi stack: perception, localization, Lanelet2 planning and CAN control.",
@@ -47,7 +47,7 @@
     facts: [
       ["facts.location", { en: "Ankara, Türkiye", tr: "Ankara, Türkiye" }],
       ["facts.university", { en: "Ankara University", tr: "Ankara Üniversitesi" }],
-      ["facts.focus", { en: "Autonomous systems, web", tr: "Otonom sistemler, web" }],
+      ["facts.focus", { en: "Robotics, automation", tr: "Robotik, otomasyon" }],
     ],
     education: [
       {
@@ -113,8 +113,8 @@
         title: { en: "Unmanned Ground Vehicle (İKA)", tr: "İnsansız Kara Aracı (İKA)" },
         role: { en: "Team captain", tr: "Takım kaptanı" },
         text: {
-          en: "TEKNOFEST unmanned ground vehicle project. I lead the team, and I modelled the vehicle in Blender for use in our Gazebo simulation of the competition course.",
-          tr: "TEKNOFEST İnsansız Kara Aracı projesi. Takımı yönetiyorum; aracı Blender üzerinde modelledim ve yarışma parkurunun Gazebo simülasyonunda kullanıyoruz.",
+          en: "TEKNOFEST unmanned ground vehicle project. As team captain I take part across the whole process, and the vehicle's simulation is my own area: I modelled the vehicle in Blender and generate its Gazebo model for the competition course with Python.",
+          tr: "TEKNOFEST İnsansız Kara Aracı projesi. Takım kaptanı olarak projenin genel sürecinde yer alıyorum; aracın simülasyon kısmı da bende: aracı Blender'da modelledim, yarışma parkuru için Gazebo modelini Python ile üretiyorum.",
         },
         tags: ["ROS 2", "Gazebo", "Blender", "Python"],
       },
@@ -122,8 +122,8 @@
         title: { en: "Advanced Autonomous Systems", tr: "İleri Otonom Sistemler" },
         role: { en: "Simulation · Route planning", tr: "Simülasyon · Rota planlama" },
         text: {
-          en: "TEKNOFEST Advanced Autonomous Systems project. I work on simulation and route planning, including a Gazebo and RViz test field: a 50×50 m rubble area with seed-generated corridors and a scoring measure.",
-          tr: "TEKNOFEST İleri Otonom Sistemler projesi. Simülasyon ve rota planlama kısımlarıyla uğraşıyorum; tohumdan üretilen koridorlara sahip 50×50 m moloz sahasını ve puanlama ölçümünü içeren Gazebo + RViz test ortamı bunlardan biri.",
+          en: "TEKNOFEST Advanced Autonomous Systems project. I work on simulation and route planning. I built an infinite-seed simulation in Gazebo and RViz: every seed generates a different 50×50 m rubble field with its own corridors, and a batch runner scores the driver across as many seeds as needed.",
+          tr: "TEKNOFEST İleri Otonom Sistemler projesi. Simülasyon ve rota planlama kısımlarıyla uğraşıyorum. Gazebo ve RViz üzerinde sonsuz tohumlu bir simülasyon geliştirdim: her tohum kendi koridorlarıyla farklı bir 50×50 m moloz sahası üretiyor, toplu koşucu da sürücüyü istenen sayıda tohumda sınayıp puanlıyor.",
         },
         tags: ["ROS 2", "Gazebo", "RViz", "Python", "Hybrid A*"],
       },
@@ -209,7 +209,7 @@
       {
         tile: "CORE",
         title: { en: "CORE Student Community", tr: "CORE Öğrenci Topluluğu" },
-        meta: { en: "Board Member · Ankara University · 2025 – present", tr: "Yönetim Kurulu Üyesi · Ankara Üniversitesi · 2025 – devam ediyor" },
+        meta: { en: "Substitute Board Member · Ankara University · 2025 – present", tr: "Yönetim Kurulu Yedek Üyesi · Ankara Üniversitesi · 2025 – devam ediyor" },
       },
     ],
   };
