@@ -173,8 +173,8 @@
       {
         title: { en: "Edge AI Perception Pod", tr: "Edge AI Otonom Algı Podu" },
         text: {
-          en: "HackAntarktika project: an edge AI perception module for polar field conditions.",
-          tr: "HackAntarktika projesi: kutup saha koşulları için uç yapay zekâ tabanlı bir algı modülü.",
+          en: "HackAntarktika project: an edge AI perception module for polar field conditions. Details of the concept are kept private.",
+          tr: "HackAntarktika projesi: kutup saha koşulları için uç yapay zekâ (edge AI) tabanlı bir algı modülü. Fikrin ayrıntıları paylaşılmıyor.",
         },
         tags: ["Edge AI"],
       },
