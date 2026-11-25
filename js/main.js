@@ -209,7 +209,7 @@
       {
         tile: "CORE",
         title: { en: "CORE Student Community", tr: "CORE Öğrenci Topluluğu" },
-        meta: { en: "Substitute Board Member · Ankara University · 2025 – present", tr: "Yönetim Kurulu Yedek Üyesi · Ankara Üniversitesi · 2025 – devam ediyor" },
+        meta: { en: "Ankara University · 2025 – present", tr: "Ankara Üniversitesi · 2025 – devam ediyor" },
       },
     ],
   };
