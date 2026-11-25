@@ -61,7 +61,7 @@
       {
         tile: "MTA",
         title: { en: "National Technology Workshop (MTA)", tr: "Milli Teknoloji Atölyesi (MTA)" },
-        meta: { en: "Workshop tracking system · Frontend development", tr: "Atölye takip sistemi · Frontend geliştirme" },
+        meta: { en: "Workshop tracking system · Frontend development · Sep 2026 – present", tr: "Atölye takip sistemi · Frontend geliştirme · Eylül 2026 – devam ediyor" },
         text: {
           en: "I work on the frontend of the workshop's tracking system, a progressive web app where students request materials and workshop staff manage approvals and hand-overs.",
           tr: "Atölyenin takip sisteminin frontend tarafında çalışıyorum: öğrencilerin malzeme talep ettiği, atölye çalışanlarının onay ve teslim süreçlerini yönettiği bir progresif web uygulaması.",
